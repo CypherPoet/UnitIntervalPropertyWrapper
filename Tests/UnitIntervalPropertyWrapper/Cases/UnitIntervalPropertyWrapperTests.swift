@@ -1,11 +1,86 @@
 import XCTest
-@testable import UnitIntervalPropertyWrapper
+import UnitIntervalPropertyWrapper
 
-final class UnitIntervalPropertyWrapperTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(1 + 1, 2)
+
+class UnitIntervalPropertyWrapperTests: XCTestCase {
+    
+    struct AwesomeLoader {
+        @UnitInterval
+        var progressAmount: CGFloat
+    }
+}
+
+
+// MARK: - Lifecycle
+extension UnitIntervalPropertyWrapperTests {
+
+    override func setUpWithError() throws {
+        // Put setup code here.
+        // This method is called before the invocation of each
+        // test method in the class.
+        try super.setUpWithError()
+    }
+
+
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+    }
+}
+
+
+// MARK: - Tests: Core Functionality
+extension UnitIntervalPropertyWrapperTests {
+
+    func test_Initializing_WithinRange_UsesProvidedValue() throws {
+        let newValue: CGFloat = 0.4
+        let loader = AwesomeLoader(progressAmount: newValue)
+        
+        XCTAssertEqual(loader.progressAmount, newValue)
+    }
+    
+    
+    func test_Initializing_BelowRange_SetsToLowerBound() throws {
+        let newValue: CGFloat = -42
+        let loader = AwesomeLoader(progressAmount: newValue)
+        
+        XCTAssertEqual(loader.progressAmount, 0.0)
+    }
+    
+    
+    func test_Initializing_AboveRange_SetsToUpperBound() throws {
+        let newValue: CGFloat = 1.4
+        let loader = AwesomeLoader(progressAmount: newValue)
+        
+        XCTAssertEqual(loader.progressAmount, 1.0)
+    }
+    
+    
+    func test_Setting_WithinRange_SetsToProvidedValue() throws {
+        let newValue: CGFloat = 0.21
+        var loader = AwesomeLoader(progressAmount: 0.5)
+        
+        loader.progressAmount = newValue
+        
+        XCTAssertEqual(loader.progressAmount, newValue)
+    }
+    
+    
+    func test_Setting_BelowRange_SetsToLowerBound() throws {
+        let newValue: CGFloat = -21
+        var loader = AwesomeLoader(progressAmount: 0.5)
+        
+        loader.progressAmount = newValue
+        
+        XCTAssertEqual(loader.progressAmount, 0.0)
+    }
+    
+    
+    func test_Setting_AboveRange_SetsToUpperBound() throws {
+        let newValue: CGFloat = 21
+        var loader = AwesomeLoader(progressAmount: 0.5)
+        
+        loader.progressAmount = newValue
+        
+        XCTAssertEqual(loader.progressAmount, 1.0)
     }
 }
