@@ -1,4 +1,4 @@
-# UnitIntervalPropertyWrapper
+# UnitInterval: A Swift Property Wrapper
 
 <!-- Header Logo -->
 
@@ -28,19 +28,9 @@
 
 <p align="center">
 
-_A Swift Property Wrapper for automatically clamping values within a closed range of [0,1]._
+_A Swift Property Wrapper for automatically clamping floating-point values within a closed range of [0,1]._
 
 <p />
-
-
-[[ Optionally, a longer description of this package. ]]
-
-
-## Features
-
-- ✅ Feature 1
-- ✅ Feature 2
-
 
 ## Installation
 
@@ -83,12 +73,30 @@ Then simply `import UnitIntervalPropertyWrapper` wherever you’d like to use it
 
 ## Usage
 
+**Basic Usage Example**:
 
+```swift
+import UnitIntervalPropertyWrapper
 
-## 🗺 Roadmap
+struct AwesomePhoto {
+    @UnitInterval
+    public var opacity: Double
 
-- World Domination
+    @UnitInterval
+    public var animationProgress: Double = 0.0
+}
 
+var photo = AwesomePhoto(opacity: 100)
+
+photo.opacity             // 1.0
+photo.animationProgress   // 0.0
+
+photo.animationProgress = -2.2
+
+photo.animationProgress  // 0.0
+```
+
+Also, feel free to use [this project's Xcode Playground](./Examples/Playgrounds/) to explore things further.
 
 
 ## Contributing
