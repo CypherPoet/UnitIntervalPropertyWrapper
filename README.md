@@ -47,7 +47,10 @@ You can add `UnitIntervalPropertyWrapper` as a package dependency in your `Packa
 let package = Package(
     //...
     dependencies: [
-        .package(url: "https://github.com/CypherPoet/UnitIntervalPropertyWrapper", .exact("0.0.1")),
+        .package(
+            url: "https://github.com/CypherPoet/UnitIntervalPropertyWrapper",
+            .upToNextMinor(from: "0.1.0")
+        ),
     ],
     //...
 )
