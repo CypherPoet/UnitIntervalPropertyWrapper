@@ -1,12 +1,11 @@
 import XCTest
 import UnitIntervalPropertyWrapper
 
-
 class UnitIntervalPropertyWrapperTests: XCTestCase {
     
     struct AwesomeLoader {
         @UnitInterval
-        var progressAmount: CGFloat
+        var progressAmount: Double
     }
 }
 
@@ -32,7 +31,7 @@ extension UnitIntervalPropertyWrapperTests {
 extension UnitIntervalPropertyWrapperTests {
 
     func test_Initializing_WithinRange_UsesProvidedValue() throws {
-        let newValue: CGFloat = 0.4
+        let newValue: Double = 0.4
         let loader = AwesomeLoader(progressAmount: newValue)
         
         XCTAssertEqual(loader.progressAmount, newValue)
@@ -40,7 +39,7 @@ extension UnitIntervalPropertyWrapperTests {
     
     
     func test_Initializing_BelowRange_SetsToLowerBound() throws {
-        let newValue: CGFloat = -42
+        let newValue: Double = -42
         let loader = AwesomeLoader(progressAmount: newValue)
         
         XCTAssertEqual(loader.progressAmount, 0.0)
@@ -48,7 +47,7 @@ extension UnitIntervalPropertyWrapperTests {
     
     
     func test_Initializing_AboveRange_SetsToUpperBound() throws {
-        let newValue: CGFloat = 1.4
+        let newValue: Double = 1.4
         let loader = AwesomeLoader(progressAmount: newValue)
         
         XCTAssertEqual(loader.progressAmount, 1.0)
@@ -56,7 +55,7 @@ extension UnitIntervalPropertyWrapperTests {
     
     
     func test_Setting_WithinRange_SetsToProvidedValue() throws {
-        let newValue: CGFloat = 0.21
+        let newValue: Double = 0.21
         var loader = AwesomeLoader(progressAmount: 0.5)
         
         loader.progressAmount = newValue
@@ -66,7 +65,7 @@ extension UnitIntervalPropertyWrapperTests {
     
     
     func test_Setting_BelowRange_SetsToLowerBound() throws {
-        let newValue: CGFloat = -21
+        let newValue: Double = -21
         var loader = AwesomeLoader(progressAmount: 0.5)
         
         loader.progressAmount = newValue
@@ -76,7 +75,7 @@ extension UnitIntervalPropertyWrapperTests {
     
     
     func test_Setting_AboveRange_SetsToUpperBound() throws {
-        let newValue: CGFloat = 21
+        let newValue: Double = 21
         var loader = AwesomeLoader(progressAmount: 0.5)
         
         loader.progressAmount = newValue
