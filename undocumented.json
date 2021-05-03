@@ -1,0 +1,26 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/swift-unit-interval-property-wrapper/swift-unit-interval-property-wrapper/Sources/UnitIntervalPropertyWrapper/UnitIntervalPropertyWrapper.swift",
+      "line": 5,
+      "symbol": "UnitInterval",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-unit-interval-property-wrapper/swift-unit-interval-property-wrapper/Sources/UnitIntervalPropertyWrapper/UnitIntervalPropertyWrapper.swift",
+      "line": 8,
+      "symbol": "UnitInterval.wrappedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-unit-interval-property-wrapper/swift-unit-interval-property-wrapper/Sources/UnitIntervalPropertyWrapper/UnitIntervalPropertyWrapper.swift",
+      "line": 12,
+      "symbol": "UnitInterval.init(wrappedValue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/swift-unit-interval-property-wrapper/swift-unit-interval-property-wrapper"
+}
