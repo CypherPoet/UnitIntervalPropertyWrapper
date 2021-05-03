@@ -48,7 +48,7 @@ let package = Package(
     //...
     dependencies: [
         .package(
-            url: "https://github.com/CypherPoet/UnitIntervalPropertyWrapper",
+            url: "https://github.com/CypherPoet/swift-unit-interval-property-wrapper",
             .upToNextMinor(from: "0.1.0")
         ),
     ],
