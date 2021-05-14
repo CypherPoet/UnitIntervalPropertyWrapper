@@ -4,7 +4,7 @@ import ClampedPropertyWrapper
 @propertyWrapper
 public struct UnitInterval<Value: FloatingPoint> {
     
-    @Clamped(within: 0...1)
+    @Clamped(to: 0...1)
     public var wrappedValue: Value = .zero
     
     
